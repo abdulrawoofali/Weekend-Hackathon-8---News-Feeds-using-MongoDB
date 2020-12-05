@@ -16,9 +16,9 @@ app.get("/newFeeds/:limit/:offset", (req, res) => {
     limit = 10;
     offset = 0;
   }
-  //console.log(limit,offset);
+  console.log(limit,offset);
   newsArticleModel
-    .find()
+    .find().sort({"publishedAt":-1})
     .limit(limit)
     .skip(offset)
     .then((news) => res.send(news))
