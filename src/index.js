@@ -21,7 +21,7 @@ app.get("/newFeeds/:limit/:offset", (req, res) => {
     .find()
     .limit(limit)
     .skip(offset)
-    .then((news) => res.send({ length: news.length }))
+    .then((news) => res.send(news))
     .catch((err) => console.log(err));
 });
 
