@@ -17,6 +17,7 @@ app.get("/newFeeds/:limit/:offset", (req, res) => {
     offset = 0;
   }
  console.log(limit,offset);
+
   newsArticleModel
     .find({}).sort({"publishedAt":-1})
     .limit(limit)
@@ -26,6 +27,8 @@ app.get("/newFeeds/:limit/:offset", (req, res) => {
 });
 
 app.get('/newFeeds',(req,res)=>{
+    const limit = 10;
+    const offset = 0;
     newsArticleModel
     .find({}).sort({"publishedAt":-1})
     .limit(limit)
